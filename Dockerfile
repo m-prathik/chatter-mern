@@ -1,9 +1,9 @@
-FROM node:latest as node
-
-WORKDIR /src
-
+FROM node:14-alpine AS development
+ENV NODE_ENV development
+WORKDIR /app
+COPY package.json .
+COPY package-lock.json .
+RUN npm install
 COPY . .
-
-RUN  npm install
-
-RUN npm run build --prod
+EXPOSE 3000
+CMD ["npm","start"]
