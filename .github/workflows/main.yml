@@ -50,11 +50,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to netlify
-        uses: netlify/actions/cli@master
+        #uses: jsmrcaga/action-netlify-deploy@v1.7.1
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=build --prod
+        run: netlify deploy --dir=build --prod
           #secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
