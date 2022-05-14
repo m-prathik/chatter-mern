@@ -42,3 +42,15 @@ jobs:
     
     - name: Image Digest
       run: echo ${{steps.docker_build.outputs.digest}}
+    
+    #### deploy in netlify#####
+  deploy:
+  
+    - name: Deploy to netlify
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{secrets.NETLIFY_AUTH_TOKEN}}
+        NETLIFY_SITE_ID: ${{secrets.NETLIFY_SIDE_ID}}
+      with:
+        args: deploy --dir=build --prod
+        secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
