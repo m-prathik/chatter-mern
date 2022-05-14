@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       #- name: Deploy to netlify
-      - uses: action/checkout@v1
+      - uses: actions/checkout@v1
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
