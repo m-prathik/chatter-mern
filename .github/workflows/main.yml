@@ -49,11 +49,14 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to netlify
-        #uses: jsmrcaga/action-netlify-deploy@v1.7.1
-        env:
+      #- name: Deploy to netlify
+      - uses: actions/checkout@v1
+      - uses: jsmrcaga/action-netlify-deploy@master
+        with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: netlify deploy --dir=build --prod
+          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{github.ref}}"
+          NETLIFY_DEPLOY_TO_PROD: true
+          #run: netlify deploy --dir=build --prod
           #secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
