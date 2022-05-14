@@ -49,7 +49,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to netlify
+      #- name: Deploy to netlify
       - uses: action/checkout@v1
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
