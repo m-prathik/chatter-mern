@@ -45,7 +45,10 @@ jobs:
     
     #### deploy in netlify#####
   deploy:
-  
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Deploy to netlify
       uses: netlify/actions/cli@master
       env:
