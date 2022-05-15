@@ -18,9 +18,9 @@ function Chat( {messages}) {
 
     axios.post('/messages/new', {
       "message" : input,
-      "name" : " prathik ",
-      "timestamp" : "12th may",
-      "received" : false,
+      "name" : "prathik manchikalapudi ",
+      "timestamp" : "15th may",
+      "received" : true,
     });
 
     setInput("");
